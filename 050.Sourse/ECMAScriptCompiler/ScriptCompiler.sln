@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ECMAScript", "ECMAScript\ECMAScript.vcxproj", "{1E6F0D57-5226-43F8-8672-1ED72402EEE1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Monitor", "Monitor\Monitor.vcxproj", "{E2689FF0-8A89-46AE-B1C6-014D780DE41B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E6F0D57-5226-43F8-8672-1ED72402EEE1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1E6F0D57-5226-43F8-8672-1ED72402EEE1}.Debug|Win32.Build.0 = Debug|Win32
+		{1E6F0D57-5226-43F8-8672-1ED72402EEE1}.Release|Win32.ActiveCfg = Release|Win32
+		{1E6F0D57-5226-43F8-8672-1ED72402EEE1}.Release|Win32.Build.0 = Release|Win32
+		{E2689FF0-8A89-46AE-B1C6-014D780DE41B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E2689FF0-8A89-46AE-B1C6-014D780DE41B}.Debug|Win32.Build.0 = Debug|Win32
+		{E2689FF0-8A89-46AE-B1C6-014D780DE41B}.Release|Win32.ActiveCfg = Release|Win32
+		{E2689FF0-8A89-46AE-B1C6-014D780DE41B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
