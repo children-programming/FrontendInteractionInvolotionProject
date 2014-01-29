@@ -5,13 +5,17 @@
 #include <iostream>
 
 #include <string>
-//#include "E:\项目管理\140.Front-end-Interaction-Involotion\050.Sourse\ScriptCompiler\ECMAScript\ECMAScript.h"
+
+//从MyTestWin32DLL.dll中静态加载CMyClass
+#include "MyClass.h"
+#pragma comment(lib,"MyTestWin32DLL.lib")
 
 
 #define DllImport   __declspec( dllimport )
 #define DllExport   __declspec( dllexport )
 
 using namespace std;
+using namespace www_yesdata_net;
 
 typedef void (*lpParseSourse)(const wchar_t* pSourse);
 
@@ -130,6 +134,10 @@ int _tmain(int argc, _TCHAR* argv[])
 			ParseSourse(sourse.c_str());
 		}
 	}
+
+	//Here using the exported class "CMyClass"
+	CMyClass myclass;
+	myclass.Print("The this the string that was printed out by CMyClass::Print function.");
 
 	return 0;
 }
