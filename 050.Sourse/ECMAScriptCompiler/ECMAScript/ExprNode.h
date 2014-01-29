@@ -1,3 +1,12 @@
+/********************************************************************
+// 
+// parent class for Expr..., and this class will be used in class Expr
+//
+//
+// 
+// CopyRight Yes!Data  http://www.yesdata.net
+//
+********************************************************************/
 #pragma once
 #include <iostream>
 #include "Expr.h"

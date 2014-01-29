@@ -1,3 +1,15 @@
+/********************************************************************
+// 
+// this class would be expected to be used by users directly
+// to create a expression like bellow:
+//    Expr(50)                                 => 50
+//    Expr(Expr(10), "+", Expr(50))            => 10+50
+//    Expr(Expr(Expr(10), "+", Expr(50)), * 5) => (10+50)*5
+// 
+// 
+// CopyRight Yes!Data  http://www.yesdata.net
+//
+********************************************************************/
 #pragma once
 #include <string>
 #include <iostream>
