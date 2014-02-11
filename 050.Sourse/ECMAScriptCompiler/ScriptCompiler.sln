@@ -5,8 +5,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ECMAScript", "ECMAScript\EC
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Monitor", "Monitor\Monitor.vcxproj", "{E2689FF0-8A89-46AE-B1C6-014D780DE41B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "loneliness", "loneliness\loneliness.vcxproj", "{E2993E23-F521-4FEB-9F99-B28E4895B183}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,10 +19,6 @@ Global
 		{E2689FF0-8A89-46AE-B1C6-014D780DE41B}.Debug|Win32.Build.0 = Debug|Win32
 		{E2689FF0-8A89-46AE-B1C6-014D780DE41B}.Release|Win32.ActiveCfg = Release|Win32
 		{E2689FF0-8A89-46AE-B1C6-014D780DE41B}.Release|Win32.Build.0 = Release|Win32
-		{E2993E23-F521-4FEB-9F99-B28E4895B183}.Debug|Win32.ActiveCfg = Debug|Win32
-		{E2993E23-F521-4FEB-9F99-B28E4895B183}.Debug|Win32.Build.0 = Debug|Win32
-		{E2993E23-F521-4FEB-9F99-B28E4895B183}.Release|Win32.ActiveCfg = Release|Win32
-		{E2993E23-F521-4FEB-9F99-B28E4895B183}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
