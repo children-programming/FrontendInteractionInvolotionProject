@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Monitor", "Monitor\Monitor.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MyTestWin32DLL", "MyTestWin32DLL\MyTestWin32DLL.vcxproj", "{22C5CF35-BC71-456D-99F7-4929CFE0981A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MDITest", "MDITest\MDITest.vcxproj", "{450B417D-FC0A-4574-96CB-D751679B0024}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -25,6 +27,10 @@ Global
 		{22C5CF35-BC71-456D-99F7-4929CFE0981A}.Debug|Win32.Build.0 = Debug|Win32
 		{22C5CF35-BC71-456D-99F7-4929CFE0981A}.Release|Win32.ActiveCfg = Release|Win32
 		{22C5CF35-BC71-456D-99F7-4929CFE0981A}.Release|Win32.Build.0 = Release|Win32
+		{450B417D-FC0A-4574-96CB-D751679B0024}.Debug|Win32.ActiveCfg = Debug|Win32
+		{450B417D-FC0A-4574-96CB-D751679B0024}.Debug|Win32.Build.0 = Debug|Win32
+		{450B417D-FC0A-4574-96CB-D751679B0024}.Release|Win32.ActiveCfg = Release|Win32
+		{450B417D-FC0A-4574-96CB-D751679B0024}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
