@@ -18,7 +18,7 @@
 IMPLEMENT_DYNCREATE(CChildFrame, CMDIChildWnd)
 
 BEGIN_MESSAGE_MAP(CChildFrame, CMDIChildWnd)
-	ON_COMMAND(ID_SIMULATER_GET, &CChildFrame::OnSimulaterGet)
+	
 END_MESSAGE_MAP()
 
 // CChildFrame 构造/析构
@@ -56,19 +56,3 @@ void CChildFrame::Dump(CDumpContext& dc) const
 }
 #endif //_DEBUG
 
-// CChildFrame 消息处理程序
-void CChildFrame::OnSimulaterGet()
-{
-	// TODO: 在此添加命令处理程序代码
-	/*CDialog1 d1;
-	d1.DoModal();*/
-
-	SimulaterGetPropertyPage c;
-	CPropertySheet sheet(_T("URI"));
-	sheet.AddPage(&c);
-	if (sheet.DoModal() == ID_OK)
-	{
-		
-	}
-
-}

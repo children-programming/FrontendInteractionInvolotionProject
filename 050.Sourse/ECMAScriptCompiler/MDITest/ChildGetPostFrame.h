@@ -1,15 +1,11 @@
-
-// ChildFrm.h : CChildFrame 类的接口
-//
-
 #pragma once
-
-class CChildFrame : public CMDIChildWnd
+#include "afxwin.h"
+class CChildGetPostFrame :
+	public CMDIChildWnd
 {
-	DECLARE_DYNCREATE(CChildFrame)
+	DECLARE_DYNCREATE(CChildGetPostFrame)
 public:
-	CChildFrame();
-
+	CChildGetPostFrame(void);
 // 特性
 public:
 
@@ -21,7 +17,7 @@ public:
 
 // 实现
 public:
-	virtual ~CChildFrame();
+	virtual ~CChildGetPostFrame();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
@@ -30,4 +26,6 @@ public:
 // 生成的消息映射函数
 protected:
 	DECLARE_MESSAGE_MAP()
+
 };
+

@@ -6,6 +6,9 @@
 #endif
 
 #include "MDITestGetPostView.h"
+#include "SimulaterGetPropertyPage.h"
+#include "Dialog1.h"
+#include "MDITestGetPostDoc.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -20,6 +23,7 @@ BEGIN_MESSAGE_MAP(CMDITestGetPostView, CView)
 	ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
+	ON_COMMAND(ID_SIMULATER_GET, &CMDITestGetPostView::OnSimulaterGet)
 END_MESSAGE_MAP()
 
 // CMDITestView 构造/析构
@@ -95,4 +99,43 @@ CMDITestGetPostDoc* CMDITestGetPostView::GetDocument() const // 非调试版本是内联
 #endif //_DEBUG
 
 
-// CMDITestView 消息处理程序
+// CMDITestGetPostView 消息处理程序
+void CMDITestGetPostView::OnSimulaterGet()
+{
+	// TODO: 在此添加命令处理程序代码
+	/*CDialog1 d1;
+	d1.DoModal();*/
+
+	SimulaterGetPropertyPage c;
+	CPropertySheet sheet(_T("URI"));
+	sheet.AddPage(&c);
+	if (sheet.DoModal() == IDOK)
+	{
+		////Create New Child Frame
+		//POSITION pos = AfxGetApp()->GetFirstDocTemplatePosition();
+		//if (pos != NULL)
+		//{
+		//	CDocTemplate *t = NULL;
+		//	t = AfxGetApp()->GetNextDocTemplate(pos);//Get first
+		//	t = AfxGetApp()->GetNextDocTemplate(pos);//Get second
+		//	if (t != NULL)
+		//	{
+		//		POSITION pos_d = t->GetFirstDocPosition();
+		//		CMDITestGetPostDoc* d = (CMDITestGetPostDoc*)t->GetNextDoc(pos_d);
+
+		//		CChildGetPostFrame *f = (CChildGetPostFrame *)t->CreateNewFrame(d, NULL);
+		//		f->ActivateFrame();
+		//		
+		//	}
+		//}
+
+		////Create New Mainframe
+		CMDITestGetPostDoc *doc = (CMDITestGetPostDoc*)GetDocument();
+		//c.UpdateData(TRUE);
+		CString uri = c.GetURI();
+		doc->SetURI(uri);
+		doc->StartSimulatingGet();
+		
+	}
+
+}

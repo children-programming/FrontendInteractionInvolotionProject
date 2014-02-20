@@ -22,4 +22,6 @@ public:
 	CString GetURI(void);
 	CString m_str_uri;
 	virtual void OnOK();
+	virtual BOOL OnInitDialog();
+	CEdit m_ctl_uri;
 };

@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChildFrm.h" />
+    <ClInclude Include="ChildGetPostFrame.h" />
     <ClInclude Include="Dialog1.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="MDITest.h" />
@@ -117,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ChildFrm.cpp" />
+    <ClCompile Include="ChildGetPostFrame.cpp" />
     <ClCompile Include="Dialog1.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="MDITest.cpp" />

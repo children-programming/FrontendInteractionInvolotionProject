@@ -12,6 +12,7 @@
 #include "MDITestDoc.h"
 #include "MDITestView.h"
 
+#include "ChildGetPostFrame.h"
 #include "MDITestGetPostDoc.h"
 #include "MDITestGetPostView.h"
 
@@ -120,7 +121,7 @@ BOOL CMDITestApp::InitInstance()
 	CMultiDocTemplate* pDocTemplate2;
 	pDocTemplate2 = new CMultiDocTemplate(IDR_MDITestGetPostTYPE,
 		RUNTIME_CLASS(CMDITestGetPostDoc),
-		RUNTIME_CLASS(CChildFrame), // 自定义 MDI 子框架
+		RUNTIME_CLASS(CChildGetPostFrame), // 自定义 MDI 子框架
 		RUNTIME_CLASS(CMDITestGetPostView));
 	if (!pDocTemplate2)
 		return FALSE;
@@ -135,7 +136,7 @@ BOOL CMDITestApp::InitInstance()
 	}
 	m_pMainWnd = pMainFrame;
 	// 仅当具有后缀时才调用 DragAcceptFiles
-	//  在 MDI 应用程序中，这应在设置 m_pMainWnd 之后立即发生
+	// 在 MDI 应用程序中，这应在设置 m_pMainWnd 之后立即发生
 	// 启用拖/放
 	m_pMainWnd->DragAcceptFiles();
 

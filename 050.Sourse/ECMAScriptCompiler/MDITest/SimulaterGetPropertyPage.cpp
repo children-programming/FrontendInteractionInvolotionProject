@@ -27,6 +27,7 @@ void SimulaterGetPropertyPage::DoDataExchange(CDataExchange* pDX)
 	CPropertyPage::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_EDIT_GET_URI, m_str_uri);
 	DDV_MaxChars(pDX, m_str_uri, 1000);
+	DDX_Control(pDX, IDC_EDIT_GET_URI, m_ctl_uri);
 }
 
 
@@ -39,7 +40,7 @@ END_MESSAGE_MAP()
 
 CString SimulaterGetPropertyPage::GetURI(void)
 {
-	return CString();
+	return m_str_uri;;
 }
 
 
@@ -48,4 +49,19 @@ void SimulaterGetPropertyPage::OnOK()
 	// TODO: 在此添加专用代码和/或调用基类
 
 	CPropertyPage::OnOK();
+}
+
+
+BOOL SimulaterGetPropertyPage::OnInitDialog()
+{
+	CPropertyPage::OnInitDialog();
+
+	// TODO:  在此添加额外的初始化
+	m_str_uri = "http://150.34.222.125/";
+	UpdateData(FALSE);
+
+	//m_ctl_uri.UpdateData(TRUE);
+
+	return TRUE;  // return TRUE unless you set the focus to a control
+	// 异常: OCX 属性页应返回 FALSE
 }
