@@ -70,6 +70,12 @@
     <ClInclude Include="ChildGetPostFrame.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="HTTPResponse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MDITestGetPostHtmlView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MDITest.cpp">
@@ -103,6 +109,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ChildGetPostFrame.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HTTPResponse.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MDITestGetPostHtmlView.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

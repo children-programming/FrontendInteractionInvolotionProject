@@ -105,10 +105,12 @@
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="ChildGetPostFrame.h" />
     <ClInclude Include="Dialog1.h" />
+    <ClInclude Include="HTTPResponse.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="MDITest.h" />
     <ClInclude Include="MDITestDoc.h" />
     <ClInclude Include="MDITestGetPostDoc.h" />
+    <ClInclude Include="MDITestGetPostHtmlView.h" />
     <ClInclude Include="MDITestGetPostView.h" />
     <ClInclude Include="MDITestView.h" />
     <ClInclude Include="Resource.h" />
@@ -120,10 +122,12 @@
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="ChildGetPostFrame.cpp" />
     <ClCompile Include="Dialog1.cpp" />
+    <ClCompile Include="HTTPResponse.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="MDITest.cpp" />
     <ClCompile Include="MDITestDoc.cpp" />
     <ClCompile Include="MDITestGetPostDoc.cpp" />
+    <ClCompile Include="MDITestGetPostHtmlView.cpp" />
     <ClCompile Include="MDITestGetPostView.cpp" />
     <ClCompile Include="MDITestView.cpp" />
     <ClCompile Include="SimulaterGetPropertyPage.cpp" />

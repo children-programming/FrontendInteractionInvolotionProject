@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "mditestdoc.h"
 #include "resource.h"       // Ö÷·ûºÅ
+#include "HTTPResponse.h"
 
 class CMDITestGetPostDoc :
 	public CDocument
@@ -17,10 +18,19 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnUpdateSimulaterGet(CCmdUI *pCmdUI);
-	void SetURI(const CString& uri) const;
-	void StartSimulatingGet(void) const;
+	afx_msg void OnMenuChangeView(CCmdUI *pCmdUI);
+	void SetURI(const CString& uri);
+	void StartSimulatingGet(void);
+	const CHTTPResponse& GetResponseData() const;
 private:
 	// //URI
 	CString m_uri;
+	CHTTPResponse response;
+	
+public:
+	CSize& GetDocSize(void);
+	
+	afx_msg void OnMenuChangeView();
+	CString GetURI(void) const;
 };
 

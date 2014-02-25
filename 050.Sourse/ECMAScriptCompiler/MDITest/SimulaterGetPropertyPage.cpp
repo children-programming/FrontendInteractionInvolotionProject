@@ -57,7 +57,7 @@ BOOL SimulaterGetPropertyPage::OnInitDialog()
 	CPropertyPage::OnInitDialog();
 
 	// TODO:  在此添加额外的初始化
-	m_str_uri = "http://150.34.222.125/";
+	m_str_uri = _T("http://180.166.20.236/DailyReport/Login.aspx");
 	UpdateData(FALSE);
 
 	//m_ctl_uri.UpdateData(TRUE);

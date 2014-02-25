@@ -28,6 +28,16 @@ public:
 // й╣ож
 	afx_msg void OnAppAbout();
 	DECLARE_MESSAGE_MAP()
+
+private:
+	CView* m_pOldView;
+	CView* m_pNewView;
+public:
+	CView* SwitchView();
+	CView* GetOldView() const;
+	void SetOldView(CView* val);
+	CView* GetNewView() const;
+	void SetNewView(CView* val);
 };
 
 extern CMDITestApp theApp;

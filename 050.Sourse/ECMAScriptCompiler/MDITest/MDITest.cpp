@@ -15,6 +15,9 @@
 #include "ChildGetPostFrame.h"
 #include "MDITestGetPostDoc.h"
 #include "MDITestGetPostView.h"
+#include "MDITestGetPostHtmlView.h"
+#include <AFXPRIV.H>
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -157,6 +160,35 @@ BOOL CMDITestApp::InitInstance()
 	pMainFrame->ShowWindow(SW_SHOWMAXIMIZED);
 	pMainFrame->UpdateWindow();
 
+	// Initiate another CHtmlView
+	//CView* pActiveView = ((CFrameWnd*)m_pMainWnd)->GetActiveView();//for SDI
+	CView* pActiveView = pMainFrame->MDIGetActive()->GetActiveView();//for MDI
+	
+	m_pOldView = pActiveView;
+	m_pNewView = (CView*)(new CMDITestGetPostHtmlView());
+	if (NULL == m_pNewView)
+	{
+		return FALSE;
+	}
+	//CDocument* pCurrentDoc = ((CFrameWnd*)m_pMainWnd)->GetActiveDocument();//for SDI
+	CDocument* pCurrentDoc = pMainFrame->MDIGetActive()->GetActiveDocument();//for MDI
+	CCreateContext newContext;
+	newContext.m_pNewViewClass = NULL;
+	newContext.m_pNewDocTemplate = NULL;
+	newContext.m_pLastView = NULL;
+	newContext.m_pCurrentFrame = NULL;
+	newContext.m_pCurrentDoc = pCurrentDoc;
+	//The ID of the initial active view is AFX_IDW_PANE_FIRST
+	//Increamenting this value by one for additional views works
+	//in the standard document/view case but the technique cannot 
+	//be extended for the CSplitterWnd
+	UINT viewID = AFX_IDW_PANE_FIRST + 1;
+	CRect rect(0, 0, 0, 0);
+	//m_pNewView->Create(NULL, _T("HTML VIEW"), WS_CHILD, rect, m_pMainWnd, viewID, &newContext);//for SDI
+	m_pNewView->Create(NULL, _T("HTML VIEW"), WS_CHILD, rect, pMainFrame->MDIGetActive(), viewID, &newContext);//for MDI
+	m_pNewView->SendMessage(WM_INITIALUPDATE, 0, 0);
+
+
 	return TRUE;
 }
 
@@ -210,5 +242,54 @@ void CMDITestApp::OnAppAbout()
 
 // CMDITestApp 消息处理程序
 
+CView* CMDITestApp::SwitchView()
+{
+	CView* pActiveView = ((CMainFrame*)m_pMainWnd)->MDIGetActive()->GetActiveView();
 
+	CView* pNewView = NULL;
+	if (pActiveView == m_pOldView)
+	{
+		pNewView = m_pNewView;
+	}
+	else
+	{
+		pNewView = m_pOldView;
+	}
+	
+	//Exchange view window IDs so RecalLayout() works
+#ifndef _WIN32
+	UINT temp  = ::GetWindowWord(pActiveView->m_hWnd, GWW_ID);
+	::SetWindowWord(pNewView->m_hWnd, GWL_ID, temp);
+#else
+	UINT temp  = ::GetWindowLong(pActiveView->m_hWnd, GWL_ID);
+	::SetWindowLong(pActiveView->m_hWnd, GWL_ID, ::GetWindowLong(pNewView->m_hWnd, GWL_ID));
+	::SetWindowLong(pNewView->m_hWnd, GWL_ID, temp);
+#endif
+
+	pActiveView->ShowWindow(SW_HIDE);
+	pNewView->ShowWindow(SW_SHOW);
+	//((CFrameWnd*)m_pMainWnd)->SetActiveView(pNewView);
+	((CMainFrame*)m_pMainWnd)->MDIGetActive()->SetActiveView(pNewView);
+	//((CFrameWnd*)m_pMainWnd)->RecalcLayout();
+	((CMainFrame*)m_pMainWnd)->MDIGetActive()->RecalcLayout();
+	pNewView->Invalidate();
+
+	return pNewView;
+}
+CView* CMDITestApp::GetOldView() const
+{
+	return m_pOldView;
+}
+void CMDITestApp::SetOldView(CView* val)
+{
+	m_pOldView = val;
+}
+CView* CMDITestApp::GetNewView() const
+{
+	return m_pNewView;
+}
+void CMDITestApp::SetNewView(CView* val)
+{
+	m_pNewView = val;
+}
 

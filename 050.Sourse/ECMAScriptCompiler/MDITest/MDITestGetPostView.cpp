@@ -9,6 +9,7 @@
 #include "SimulaterGetPropertyPage.h"
 #include "Dialog1.h"
 #include "MDITestGetPostDoc.h"
+#include "HTTPResponse.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -16,13 +17,13 @@
 
 // CMDITestView
 
-IMPLEMENT_DYNCREATE(CMDITestGetPostView, CView)
+IMPLEMENT_DYNCREATE(CMDITestGetPostView, CScrollView)
 
-BEGIN_MESSAGE_MAP(CMDITestGetPostView, CView)
+BEGIN_MESSAGE_MAP(CMDITestGetPostView, CScrollView)
 	// 标准打印命令
-	ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)
-	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
-	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
+	ON_COMMAND(ID_FILE_PRINT, &CScrollView::OnFilePrint)
+	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CScrollView::OnFilePrint)
+	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CScrollView::OnFilePrintPreview)
 	ON_COMMAND(ID_SIMULATER_GET, &CMDITestGetPostView::OnSimulaterGet)
 END_MESSAGE_MAP()
 
@@ -43,12 +44,12 @@ BOOL CMDITestGetPostView::PreCreateWindow(CREATESTRUCT& cs)
 	// TODO: 在此处通过修改
 	//  CREATESTRUCT cs 来修改窗口类或样式
 
-	return CView::PreCreateWindow(cs);
+	return CScrollView::PreCreateWindow(cs);
 }
 
 // CMDITestView 绘制
 
-void CMDITestGetPostView::OnDraw(CDC* /*pDC*/)
+void CMDITestGetPostView::OnDraw(CDC* pDC)
 {
 	CMDITestGetPostDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
@@ -56,6 +57,27 @@ void CMDITestGetPostView::OnDraw(CDC* /*pDC*/)
 		return;
 
 	// TODO: 在此处为本机数据添加绘制代码
+	//
+	CRect rect;
+	int LEFT = 10;
+	int TOP = 10;
+	int RIGHT = 100;
+	int BUTTOM = 20;
+	//State
+	rect = CRect(LEFT,TOP,RIGHT,BUTTOM);
+	CString state;
+	state.Format("%d",pDoc->GetResponseData().GetHeaderState());
+	pDC->DrawText(state, &rect, DT_LEFT|DT_TOP);
+
+	TOP = 50;
+	vector<CString> content = pDoc->GetResponseData().GetContent();
+	vector<CString>::iterator it = content.begin();
+	while (it != content.end())
+	{
+		TOP = TOP+BUTTOM;
+		pDC->TextOutA(LEFT, TOP, *it);
+		it++;
+	}
 }
 
 
@@ -83,12 +105,12 @@ void CMDITestGetPostView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 #ifdef _DEBUG
 void CMDITestGetPostView::AssertValid() const
 {
-	CView::AssertValid();
+	CScrollView::AssertValid();
 }
 
 void CMDITestGetPostView::Dump(CDumpContext& dc) const
 {
-	CView::Dump(dc);
+	CScrollView::Dump(dc);
 }
 
 CMDITestGetPostDoc* CMDITestGetPostView::GetDocument() const // 非调试版本是内联的
@@ -138,4 +160,12 @@ void CMDITestGetPostView::OnSimulaterGet()
 		
 	}
 
+}
+
+void CMDITestGetPostView::OnPrepareDC(CDC* pDC, CPrintInfo* pInfo)
+{
+	// TODO: 在此添加专用代码和/或调用基类
+	SetScrollSizes(MM_TEXT,	GetDocument()->GetDocSize());
+
+	CScrollView::OnPrepareDC(pDC, pInfo);
 }

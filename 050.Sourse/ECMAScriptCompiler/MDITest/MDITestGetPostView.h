@@ -2,7 +2,7 @@
 #include "afxwin.h"
 #include "MDITestGetPostDoc.h"
 class CMDITestGetPostView :
-	public CView
+	public CScrollView
 {
 protected: // 仅从序列化创建
 	CMDITestGetPostView();
@@ -39,6 +39,7 @@ protected:
 
 public:
 	afx_msg void OnSimulaterGet();
+	virtual void OnPrepareDC(CDC* pDC, CPrintInfo* pInfo = NULL);
 };
 
 #ifndef _DEBUG  // MDITestView.cpp 中的调试版本
